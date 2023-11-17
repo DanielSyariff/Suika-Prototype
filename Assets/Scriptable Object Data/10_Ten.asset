@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f1336e133669d41916d69b71a408e8, type: 3}
+  m_Name: 10_Ten
+  m_EditorClassIdentifier: 
+  suikaType: 10
+  fruitSprite: {fileID: 21300000, guid: c8a8298bebc2ec947a523452fab56063, type: 3}
+  fruitObject: {fileID: 4043304687928457314, guid: e6ca9a2d597a3bd44a413914c3d65d6d, type: 3}
+  incrementScore: 55
+  threshold: 0

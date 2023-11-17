@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f1336e133669d41916d69b71a408e8, type: 3}
+  m_Name: 4_Four
+  m_EditorClassIdentifier: 
+  suikaType: 4
+  fruitSprite: {fileID: 21300000, guid: 66e11169af7a3844c8eabdd607ffb0ff, type: 3}
+  fruitObject: {fileID: 1062000618483434980, guid: 3169c9bba381e614e89d4a085daae2c7, type: 3}
+  incrementScore: 25
+  threshold: 2.38
