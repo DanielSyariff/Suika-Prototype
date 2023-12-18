@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: b37b310dc661e7a4e985d1b254e2f0e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: b37b310dc661e7a4e985d1b254e2f0e8, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -275,6 +279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: f37c56344ca4577499eab4e83eb94538, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: f37c56344ca4577499eab4e83eb94538, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -331,6 +339,10 @@ PrefabInstance:
     - target: {fileID: 4705603812523787473, guid: 4b47203f0c2bf9d47ac615543a19cccb, type: 3}
       propertyPath: m_Name
       value: Potion 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: 4b47203f0c2bf9d47ac615543a19cccb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: 4b47203f0c2bf9d47ac615543a19cccb, type: 3}
       propertyPath: m_RootOrder
@@ -532,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: 34198a8a50568ac41891968412753a90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: 34198a8a50568ac41891968412753a90, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -657,6 +673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: 145d5424d8689c648980114628990e82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: 145d5424d8689c648980114628990e82, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -713,6 +733,10 @@ PrefabInstance:
     - target: {fileID: 4705603812523787473, guid: 7a43d565dfd7c954791fd35ef977c9f9, type: 3}
       propertyPath: m_Name
       value: Potion 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: 7a43d565dfd7c954791fd35ef977c9f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: 7a43d565dfd7c954791fd35ef977c9f9, type: 3}
       propertyPath: m_RootOrder
@@ -900,6 +924,10 @@ PrefabInstance:
     - target: {fileID: 4705603812523787473, guid: f774702bf7ba13e41977d12f13eeca21, type: 3}
       propertyPath: m_Name
       value: Potion 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: f774702bf7ba13e41977d12f13eeca21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: f774702bf7ba13e41977d12f13eeca21, type: 3}
       propertyPath: m_RootOrder
@@ -1153,6 +1181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: ca4505fe0c0bd3b4890b9a58b3c0facf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: ca4505fe0c0bd3b4890b9a58b3c0facf, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1394,6 +1426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: 8f048abf3553fa04a9d9a01718409d3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: 8f048abf3553fa04a9d9a01718409d3e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1450,6 +1486,10 @@ PrefabInstance:
     - target: {fileID: 4705603812523787473, guid: dba39425a942485448910e74673d534b, type: 3}
       propertyPath: m_Name
       value: Potion 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: dba39425a942485448910e74673d534b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: dba39425a942485448910e74673d534b, type: 3}
       propertyPath: m_RootOrder
@@ -2345,6 +2385,10 @@ PrefabInstance:
     - target: {fileID: 4705603812523787473, guid: c9a2203d24faf9049a548cc439c0474e, type: 3}
       propertyPath: m_Name
       value: Potion 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705603812523787473, guid: c9a2203d24faf9049a548cc439c0474e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684625665432943560, guid: c9a2203d24faf9049a548cc439c0474e, type: 3}
       propertyPath: m_RootOrder
