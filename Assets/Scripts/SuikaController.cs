@@ -34,13 +34,21 @@ public class SuikaController : MonoBehaviour
         suikaManager = SuikaManager.instance;
 
         initialPosition = transform.position;
-        SetupNextFruit();
+        SetupNextFruit(true);
         SetupCurrentFruit();
     }
 
-    public void SetupNextFruit()
+    public void SetupNextFruit(bool firstRow)
     {
-        setupFruitNumber = Random.Range(0, fruitToSpawn.Count);
+        //Jika Pertama kali, maka Selalu kasih Potion Paling Kecil
+        if (firstRow)
+        {
+            setupFruitNumber = 0;
+        }
+        else
+        {
+            setupFruitNumber = Random.Range(0, fruitToSpawn.Count);
+        }
         suikaManager.uiManager.UpdateUINextFruit(fruitToSpawn[setupFruitNumber].fruitSprite);
     }
 
@@ -60,7 +68,7 @@ public class SuikaController : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic; // Set body type ke kinematic untuk mengendalikan pergerakan melalui script
         circleCollider2D.enabled = false;
 
-        SetupNextFruit();
+        SetupNextFruit(false);
     }
 
     void Update()
