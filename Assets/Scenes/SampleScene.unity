@@ -464,7 +464,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5568628, g: 0.4039216, b: 0.3529412, a: 1}
+  m_Color: {r: 0.454902, g: 0.40000004, b: 0.6117647, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2344,6 +2344,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 330033ae0da9ac947b92b3fc3f565ce3, type: 2}
   - {fileID: 11400000, guid: e4f43ef0d9512a34c8ef9a569dcd742b, type: 2}
   - {fileID: 11400000, guid: e6210c74e3ed1cb4ba519ceef4de17a2, type: 2}
+  expression: {fileID: 914302860}
+  expressionList:
+  - {fileID: 21300000, guid: 2949fea1238994742b169087970fb7e3, type: 3}
+  - {fileID: 21300000, guid: 0ab28c965aefc4749a6c22144af92535, type: 3}
+  - {fileID: 21300000, guid: 72351b3b41266604e9b533b803ad57f5, type: 3}
   bucket: {fileID: 1179277250}
   score: 0
 --- !u!114 &1358236245

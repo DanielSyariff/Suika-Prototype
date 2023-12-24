@@ -23,6 +23,11 @@ public class SuikaManager : MonoBehaviour
     public UIManager uiManager;
     public List<FruitData> fruitData;
 
+    [Header("Witch Respon and Expression")]
+    public SpriteRenderer expression;
+    public List<Sprite> expressionList;
+    private Coroutine changeExpression;
+
     public Transform bucket;
 
     [Header("Scoring and Data")]
@@ -49,6 +54,35 @@ public class SuikaManager : MonoBehaviour
             tmpObject.transform.SetParent(bucket);
 
             uiManager.UpdateUIScore();
+
+            //Set Witch Expression
+            if (changeExpression == null)
+            {
+                changeExpression = StartCoroutine(ChangingExpression());
+            }
         }
+    }
+
+    IEnumerator ChangingExpression()
+    {
+        ChangeExpressionHappy();
+        yield return new WaitForSeconds(1f);
+        changeExpression = null;
+        ChangeExpressionNormal();
+    }
+
+    public void ChangeExpressionNormal()
+    {
+        expression.sprite = expressionList[0];
+    }
+
+    public void ChangeExpressionHappy()
+    {
+        expression.sprite = expressionList[1];
+    }
+
+    public void ChangeExpressionPanic()
+    {
+        expression.sprite = expressionList[2];
     }
 }
