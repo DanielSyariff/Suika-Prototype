@@ -16,4 +16,4 @@ MonoBehaviour:
   fruitSprite: {fileID: 21300000, guid: 22671cb22804b5841b339a0160fc059b, type: 3}
   fruitObject: {fileID: 4705603812523787473, guid: 4b47203f0c2bf9d47ac615543a19cccb, type: 3}
   incrementScore: 30
-  threshold: 2.38
+  threshold: 1.548
