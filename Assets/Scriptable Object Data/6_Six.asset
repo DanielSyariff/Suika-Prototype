@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6_Six
   m_EditorClassIdentifier: 
   suikaType: 6
-  fruitSprite: {fileID: 21300000, guid: b0c277ec7600e494dbc4347630527bb2, type: 3}
+  fruitSprite: {fileID: 21300000, guid: 6e3a75be78369a34183fb3cb8e83cda4, type: 3}
   fruitObject: {fileID: 4705603812523787473, guid: 145d5424d8689c648980114628990e82, type: 3}
-  incrementScore: 35
+  incrementScore: 59
   threshold: 2.16
