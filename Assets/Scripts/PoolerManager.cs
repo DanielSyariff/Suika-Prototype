@@ -5,9 +5,9 @@ using UnityEngine.Assertions;
 
 public class PoolerManager : MonoBehaviour
 {
-    [Header("Enemy")]
+    [Header("Potion")]
     public ObjectPool[] objectPool;
-    private readonly List<ObjectPool> commonEnemies = new List<ObjectPool>();
+    private readonly List<ObjectPool> potion = new List<ObjectPool>();
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class PoolerManager : MonoBehaviour
         for (int i = 0; i < objectPool.Length; i++)
         {
             Assert.IsNotNull(objectPool[i]);
-            commonEnemies.Add(objectPool[i]);
+            potion.Add(objectPool[i]);
         }
     }
 
@@ -35,6 +35,7 @@ public class PoolerManager : MonoBehaviour
 
     public ObjectPool GetSuika(SuikaType suikaType)
     {
-        return commonEnemies[(int)suikaType];
+        Debug.Log("Getting Suika : " + suikaType);
+        return potion[(int)suikaType];
     }
 }

@@ -9,11 +9,27 @@ public class SuikaObject : MonoBehaviour
 
     private CircleCollider2D childCollider; // Referensi ke CircleCollider2D di objek anak
     private bool canMerge = true;
+    public bool isTriggeringRedLine;
 
     private void Start()
     {
         childCollider = GetComponent<CircleCollider2D>();
         suikaManager = SuikaManager.instance;
+    }
+
+    private void Update()
+    {
+        if (isTriggeringRedLine)
+        {
+            if (this.transform.localPosition.y >= 2)
+            {
+                suikaManager.Alert(true);
+            }
+            else
+            {
+                suikaManager.Alert(false);
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -29,9 +45,12 @@ public class SuikaObject : MonoBehaviour
 
             // Buat objek baru (Strawberry) di tempat bersentuhannya
             suikaManager.SpawnTriggeredFruit((int)suikaTypeObject, contactPoint);
+            Debug.Log("Type Number : " + (int)suikaTypeObject);
+            collision.transform.SetParent(suikaManager.poolerManager.objectPool[(int)suikaTypeObject - 1].transform);
+            collision.gameObject.GetComponent<PooledObject>().pool.ReturnObject(collision.gameObject);
 
-            // Hancurkan objek lama
-            Destroy(collision.gameObject);
+            // Hancurkan objek lama, Jika pakai Instantiate
+            //Destroy(collision.gameObject);
 
             canMerge = false;
 
@@ -44,5 +63,15 @@ public class SuikaObject : MonoBehaviour
     {
         canMerge = true;
         childCollider.enabled = true;
+    }
+
+    public void EnableRedLine()
+    {
+        Invoke("EnableTriggeringRedLine", 1f);
+    }
+
+    void EnableTriggeringRedLine()
+    {
+        isTriggeringRedLine = true;
     }
 }

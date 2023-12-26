@@ -20,6 +20,7 @@ public enum SuikaType
 public class SuikaManager : MonoBehaviour
 {
     public static SuikaManager instance;
+    public PoolerManager poolerManager;
     public UIManager uiManager;
     public List<FruitData> fruitData;
 
@@ -43,6 +44,12 @@ public class SuikaManager : MonoBehaviour
         }
     }
 
+    public GameObject GetObjectPool(SuikaType type)
+    {
+        GameObject tmpObj = poolerManager.CallSuika(type - 1);
+        return tmpObj;
+    }
+
     public void SpawnTriggeredFruit(int nextFruit, Vector2 pos) 
     {
         triggerCount++;
@@ -50,7 +57,12 @@ public class SuikaManager : MonoBehaviour
         {
             triggerCount = 0;
             score += fruitData[nextFruit - 1].incrementScore;
-            GameObject tmpObject = Instantiate(fruitData[nextFruit].fruitObject, pos, Quaternion.identity);
+            //GameObject tmpObject = Instantiate(fruitData[nextFruit].fruitObject, pos, Quaternion.identity);
+
+            GameObject tmpObject = GetObjectPool(fruitData[nextFruit].suikaType);
+            tmpObject.transform.localPosition = pos;
+            tmpObject.transform.rotation = Quaternion.identity;
+
             tmpObject.transform.SetParent(bucket);
 
             uiManager.UpdateUIScore();
@@ -84,5 +96,18 @@ public class SuikaManager : MonoBehaviour
     public void ChangeExpressionPanic()
     {
         expression.sprite = expressionList[2];
+    }
+    public void Alert(bool alert)
+    {
+        if (alert)
+        {
+            uiManager.RedLineTriggered();
+            ChangeExpressionPanic();
+        }
+        else
+        {
+            uiManager.RedLineUntriggered();
+            ChangeExpressionNormal();
+        }
     }
 }

@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI textScore;
     public Image imageNextFruit;
 
+    public SpriteRenderer redLine;
+
     private void Start()
     {
         suikaManager = SuikaManager.instance;
@@ -23,5 +25,16 @@ public class UIManager : MonoBehaviour
     public void UpdateUINextFruit(Sprite image)
     {
         imageNextFruit.sprite = image;
+    }
+
+    public void RedLineTriggered()
+    {
+        redLine.gameObject.SetActive(true);
+        Debug.Log("Activating Alert");
+    }
+    public void RedLineUntriggered()
+    {
+        redLine.gameObject.SetActive(false);
+        Debug.Log("Deactivating Alert");
     }
 }

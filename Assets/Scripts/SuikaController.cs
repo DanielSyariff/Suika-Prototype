@@ -54,7 +54,11 @@ public class SuikaController : MonoBehaviour
 
     public void SetupCurrentFruit()
     {
-        GameObject getFruit = Instantiate(fruitToSpawn[setupFruitNumber].fruitObject, this.transform);
+        //GameObject getFruit = Instantiate(fruitToSpawn[setupFruitNumber].fruitObject, this.transform);
+
+        GameObject getFruit = suikaManager.GetObjectPool(fruitToSpawn[setupFruitNumber].suikaType);
+        getFruit.transform.SetParent(this.transform);
+        getFruit.transform.localPosition = Vector3.zero;
 
         moveThreshold = fruitToSpawn[setupFruitNumber].threshold;
 
@@ -121,6 +125,8 @@ public class SuikaController : MonoBehaviour
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 circleCollider2D.enabled = true;
                 isDragging = false;
+
+                fruitObject.gameObject.GetComponent<SuikaObject>().EnableRedLine();
 
                 SetupCurrentFruit();
             }
