@@ -17,20 +17,20 @@ public class SuikaObject : MonoBehaviour
         suikaManager = SuikaManager.instance;
     }
 
-    private void Update()
-    {
-        if (isTriggeringRedLine)
-        {
-            if (this.transform.localPosition.y >= 2)
-            {
-                suikaManager.Alert(true);
-            }
-            else
-            {
-                suikaManager.Alert(false);
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    if (isTriggeringRedLine)
+    //    {
+    //        if (this.transform.localPosition.y >= 2)
+    //        {
+    //            suikaManager.Alert(true);
+    //        }
+    //        else
+    //        {
+    //            suikaManager.Alert(false);
+    //        }
+    //    }
+    //}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -73,5 +73,10 @@ public class SuikaObject : MonoBehaviour
     void EnableTriggeringRedLine()
     {
         isTriggeringRedLine = true;
+    }
+
+    public void DisableRedLine()
+    {
+        isTriggeringRedLine = false;
     }
 }

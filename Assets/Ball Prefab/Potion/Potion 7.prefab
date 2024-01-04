@@ -58,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5990270452483949790}
   - component: {fileID: 8573379670035049940}
+  - component: {fileID: 3699641974544203306}
   m_Layer: 0
   m_Name: Acc
   m_TagString: Untagged
@@ -132,6 +133,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3699641974544203306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231711437851977271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212c3d167304cc34c9ff11fcf9bd0b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kecepatanRotasi: 0.1
 --- !u!1 &4705603812523787473
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suikaTypeObject: 7
+  isTriggeringRedLine: 0
 --- !u!1 &6986959221431697827
 GameObject:
   m_ObjectHideFlags: 0

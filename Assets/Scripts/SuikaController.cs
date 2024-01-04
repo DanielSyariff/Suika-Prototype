@@ -60,6 +60,8 @@ public class SuikaController : MonoBehaviour
         getFruit.transform.SetParent(this.transform);
         getFruit.transform.localPosition = Vector3.zero;
 
+        getFruit.GetComponent<SuikaObject>().DisableRedLine();
+
         moveThreshold = fruitToSpawn[setupFruitNumber].threshold;
 
         fruitObject = getFruit;
