@@ -44,6 +44,11 @@ public class SuikaManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        //InvokeRepeating("CheckRedLine", 1f, 2f);
+    }
+
     public GameObject GetObjectPool(SuikaType type)
     {
         GameObject tmpObj = poolerManager.CallSuika(type - 1);
@@ -97,6 +102,29 @@ public class SuikaManager : MonoBehaviour
     {
         expression.sprite = expressionList[2];
     }
+
+    //public void CheckRedLine()
+    //{
+    //    int child = bucket.childCount;
+
+    //    if (child != 0)
+    //    {
+    //        for (int i = 0; i < child; i++)
+    //        {
+    //            SuikaObject tmpObj = bucket.GetChild(i).GetComponent<SuikaObject>();
+    //            if (tmpObj.isTriggeringRedLine && tmpObj.transform.position.y >= 2)
+    //            {
+    //                Alert(true);
+    //                break;
+    //            }
+    //            else
+    //            {
+    //                Alert(false);
+    //            }
+    //        }
+    //    }
+    //}
+
     public void Alert(bool alert)
     {
         if (alert)
