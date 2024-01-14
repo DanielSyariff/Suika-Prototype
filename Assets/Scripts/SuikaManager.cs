@@ -36,6 +36,11 @@ public class SuikaManager : MonoBehaviour
 
     int triggerCount;
 
+    [Header("Game Over Parameter")]
+    public bool _Alert;
+    public float timeToGameOver;
+    float timer;
+
     private void Awake()
     {
         if (instance == null)
@@ -103,39 +108,39 @@ public class SuikaManager : MonoBehaviour
         expression.sprite = expressionList[2];
     }
 
-    //public void CheckRedLine()
-    //{
-    //    int child = bucket.childCount;
-
-    //    if (child != 0)
-    //    {
-    //        for (int i = 0; i < child; i++)
-    //        {
-    //            SuikaObject tmpObj = bucket.GetChild(i).GetComponent<SuikaObject>();
-    //            if (tmpObj.isTriggeringRedLine && tmpObj.transform.position.y >= 2)
-    //            {
-    //                Alert(true);
-    //                break;
-    //            }
-    //            else
-    //            {
-    //                Alert(false);
-    //            }
-    //        }
-    //    }
-    //}
-
     public void Alert(bool alert)
     {
         if (alert)
         {
             uiManager.RedLineTriggered();
             ChangeExpressionPanic();
+
+            if (!_Alert)
+            {
+                _Alert = alert;
+                timer = timeToGameOver;
+            }
         }
         else
         {
+            _Alert = alert;
+            timer = timeToGameOver;
+
             uiManager.RedLineUntriggered();
             ChangeExpressionNormal();
+        }
+
+        
+    }
+    private void Update()
+    {
+        if (_Alert)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                Debug.Log("GAME OVER, BREWING ALL POTION");
+            }
         }
     }
 }

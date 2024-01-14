@@ -10,6 +10,8 @@ public class RedLineManager : MonoBehaviour
 
     void Update()
     {
+        bool cekReach;
+
         foreach (Transform potion in cauldron)
         {
             if (potion.GetComponent<SuikaObject>().isTriggeringRedLine)
@@ -21,12 +23,10 @@ public class RedLineManager : MonoBehaviour
                     HeightReach();
                     return;
                 }
-                else
-                {
-                    HeightNotReach();
-                }
             }
         }
+
+        HeightNotReach();
     }
     void HeightReach()
     {

@@ -15,11 +15,12 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         suikaManager = SuikaManager.instance;
+        UpdateUIScore();
     }
 
     public void UpdateUIScore()
     {
-        textScore.text = "Score : " + suikaManager.score.ToString();
+        textScore.text = suikaManager.score.ToString();
     }
 
     public void UpdateUINextFruit(Sprite image)

@@ -79,10 +79,6 @@ public class SuikaController : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetupCurrentFruit();
-        //}
 
         if (Input.GetMouseButtonDown(0))
         {
