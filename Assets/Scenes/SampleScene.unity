@@ -417,6 +417,7 @@ MonoBehaviour:
   moveSpeed: 1000
   moveThreshold: 2.07
   DetectTouch: 0
+  IsDropping: 0
   fruitToSpawn:
   - {fileID: 11400000, guid: bacc6fc1209d56b41903f088d307085f, type: 2}
   - {fileID: 11400000, guid: 3d0aed318c8c5aa4b98335a291aad68c, type: 2}
@@ -3977,7 +3978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
