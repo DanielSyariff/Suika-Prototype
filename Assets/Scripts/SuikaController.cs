@@ -10,6 +10,8 @@ public class SuikaController : MonoBehaviour
     [Header("Controller")]
     public float moveSpeed = 5.0f; // Kecepatan pergerakan
     public float moveThreshold = 2.0f; // Threshold batas pergerakan
+    public bool DetectTouch;
+    public bool IsDropping;
 
     [Header("Fruit Control")]
     public List<FruitData> fruitToSpawn;
@@ -35,7 +37,7 @@ public class SuikaController : MonoBehaviour
 
         initialPosition = transform.position;
         SetupNextFruit(true);
-        SetupCurrentFruit();
+        Invoke("SetupCurrentFruit", 0);
     }
 
     public void SetupNextFruit(bool firstRow)
@@ -52,10 +54,13 @@ public class SuikaController : MonoBehaviour
         suikaManager.uiManager.UpdateUINextFruit(fruitToSpawn[setupFruitNumber].fruitSprite);
     }
 
+    public void Interact(bool input)
+    {
+        DetectTouch = input;
+    }
+
     public void SetupCurrentFruit()
     {
-        //GameObject getFruit = Instantiate(fruitToSpawn[setupFruitNumber].fruitObject, this.transform);
-
         GameObject getFruit = suikaManager.GetObjectPool(fruitToSpawn[setupFruitNumber].suikaType);
         getFruit.transform.SetParent(this.transform);
         getFruit.transform.localPosition = Vector3.zero;
@@ -79,27 +84,30 @@ public class SuikaController : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if (DetectTouch)
         {
-            fallIndicator.SetActive(true);
-            Vector3 inputPosition = Input.mousePosition;
-            targetPosition = Camera.main.ScreenToWorldPoint(inputPosition);
-            targetPosition.z = transform.position.z;
+            IsDropping = true;
+            if (Input.GetMouseButtonDown(0))
+            {
+                fallIndicator.SetActive(true);
+                Vector3 inputPosition = Input.mousePosition;
+                targetPosition = Camera.main.ScreenToWorldPoint(inputPosition);
+                targetPosition.z = transform.position.z;
 
-            // Cek apakah klik terjadi di dalam threshold
-            float distance = Mathf.Abs(targetPosition.x - startingPosition.x);
-            isDragging = distance <= moveThreshold;
-        }
+                // Cek apakah klik terjadi di dalam threshold
+                float distance = Mathf.Abs(targetPosition.x - startingPosition.x);
+                isDragging = distance <= moveThreshold;
+            }
 
-        if (isDragging && Input.GetMouseButton(0))
-        {
-            Vector3 inputPosition = Input.mousePosition;
-            targetPosition = Camera.main.ScreenToWorldPoint(inputPosition);
-            targetPosition.z = transform.position.z;
+            if (isDragging && Input.GetMouseButton(0))
+            {
+                Vector3 inputPosition = Input.mousePosition;
+                targetPosition = Camera.main.ScreenToWorldPoint(inputPosition);
+                targetPosition.z = transform.position.z;
 
-            // Batasan pergerakan hanya horizontal
-            targetPosition.y = startingPosition.y;
+                // Batasan pergerakan hanya horizontal
+                targetPosition.y = startingPosition.y;
+            }
         }
 
         // Batasan pergerakan
@@ -116,17 +124,24 @@ public class SuikaController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                timer = dropCD;
-                fallIndicator.SetActive(false);
-                // Aktifkan Rigidbody2D dan lepaskan kontrol pergerakan
-                fruitObject.transform.SetParent(suikaManager.bucket);
-                rb.bodyType = RigidbodyType2D.Dynamic;
-                circleCollider2D.enabled = true;
-                isDragging = false;
+                //IsDroping Force biar bisa Drop ketika emang bisa di Interact sesuai dengan Area yang udah dibuat
+                if (IsDropping)
+                {
+                    timer = dropCD;
+                    fallIndicator.SetActive(false);
+                    // Aktifkan Rigidbody2D dan lepaskan kontrol pergerakan
+                    fruitObject.transform.SetParent(suikaManager.bucket);
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    circleCollider2D.enabled = true;
+                    isDragging = false;
 
-                fruitObject.gameObject.GetComponent<SuikaObject>().EnableRedLine();
+                    fruitObject.gameObject.GetComponent<SuikaObject>().EnableRedLine();
 
-                SetupCurrentFruit();
+                    Invoke("SetupCurrentFruit", dropCD);
+                    //SetupCurrentFruit();
+
+                    IsDropping = false;
+                }
             }
         }
     }
