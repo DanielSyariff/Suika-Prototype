@@ -17,14 +17,28 @@ public class UIManager : MonoBehaviour
     public GameObject settingPanel;
     public Transform settingPopUp;
 
-    [Header("Recipe Menu")]
-    public GameObject recipePanel;
-    public Transform recipePopUp;
+    [Header("Game Over Menu")]
+    public GameObject animatedGameOver;
+    public TextMeshProUGUI animatedGameOverText;
+    public Color animatedWhiteBGColor;
+    public Color animatedBlackBGColor;
+
+    public TextMeshProUGUI resultScore;
+    public GameObject resultPanel;
+    public Transform resultPopUp;
 
     private void Start()
     {
         suikaManager = SuikaManager.instance;
         UpdateUIScore();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGameOverAnimation();
+        }
     }
 
     #region Gameplay UI
@@ -50,6 +64,34 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Game Over Animation
+    public void StartGameOverAnimation()
+    {
+        StartCoroutine(AnimateGameOver());
+    }
+
+    public IEnumerator AnimateGameOver()
+    {
+        animatedGameOver.SetActive(true);
+        //animatedGameOver.GetComponent<Image>().color = Color.white; 
+        animatedGameOver.GetComponent<Image>().DOColor(animatedBlackBGColor, 0.5f);
+        animatedGameOverText.text = "";
+        yield return new WaitForSeconds(0.5f);
+        animatedGameOverText.transform.localScale = Vector3.zero;
+        animatedGameOverText.text = "GAME OVER";
+        animatedGameOverText.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        yield return new WaitForSeconds(1.5f);
+        animatedGameOverText.transform.localScale = Vector3.zero;
+        animatedGameOverText.text = "BREWING POTIONS";
+        animatedGameOverText.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        yield return new WaitForSeconds(1.5f);
+        animatedGameOverText.text = "";
+        animatedGameOver.GetComponent<Image>().DOColor(animatedWhiteBGColor, 0.5f);
+        yield return new WaitForSeconds(2f);
+        OpenResultScreen();
+    }
+    #endregion
+
     #region Setting Menu
     public void OpenSetting()
     {
@@ -64,17 +106,13 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    #region Setting Menu
-    public void OpenRecipe()
+    #region Result Screen Menu
+    public void OpenResultScreen()
     {
-        recipePanel.SetActive(true);
-        recipePopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
-    }
+        resultScore.text = suikaManager.score.ToString();
 
-    public void CloseRecipe()
-    {
-        recipePanel.SetActive(false);
-        recipePopUp.DOScale(Vector3.zero, 0.5f);
+        resultPanel.SetActive(true);
+        resultPopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
     }
     #endregion
 }

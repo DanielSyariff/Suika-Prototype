@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum SuikaType
 {
@@ -52,6 +53,10 @@ public class SuikaManager : MonoBehaviour
     private void Start()
     {
         //InvokeRepeating("CheckRedLine", 1f, 2f);
+    }
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     public GameObject GetObjectPool(SuikaType type)
