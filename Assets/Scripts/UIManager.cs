@@ -17,6 +17,10 @@ public class UIManager : MonoBehaviour
     public GameObject settingPanel;
     public Transform settingPopUp;
 
+    [Header("Recipe Menu")]
+    public GameObject recipePanel;
+    public Transform recipePopUp;
+
     private void Start()
     {
         suikaManager = SuikaManager.instance;
@@ -57,6 +61,20 @@ public class UIManager : MonoBehaviour
     {
         settingPanel.SetActive(false);
         settingPopUp.DOScale(Vector3.zero, 0.5f);
+    }
+    #endregion
+
+    #region Setting Menu
+    public void OpenRecipe()
+    {
+        recipePanel.SetActive(true);
+        recipePopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+    }
+
+    public void CloseRecipe()
+    {
+        recipePanel.SetActive(false);
+        recipePopUp.DOScale(Vector3.zero, 0.5f);
     }
     #endregion
 }
