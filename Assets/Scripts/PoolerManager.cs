@@ -35,7 +35,7 @@ public class PoolerManager : MonoBehaviour
 
     public ObjectPool GetSuika(SuikaType suikaType)
     {
-        Debug.Log("Getting Suika : " + suikaType);
+        //Debug.Log("Getting Suika : " + suikaType);
         return potion[(int)suikaType];
     }
 }

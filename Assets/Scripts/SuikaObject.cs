@@ -36,7 +36,7 @@ public class SuikaObject : MonoBehaviour
     {
         if (canMerge && collision.gameObject.CompareTag("Fruit") && (int)collision.gameObject.GetComponent<SuikaObject>().suikaTypeObject == (int)suikaTypeObject)
         {
-            Debug.Log("BERSENTUHAN");
+            //Debug.Log("BERSENTUHAN");
             // Hapus collider untuk sementara
             childCollider.enabled = false;
 
@@ -45,7 +45,7 @@ public class SuikaObject : MonoBehaviour
 
             // Buat objek baru (Strawberry) di tempat bersentuhannya
             suikaManager.SpawnTriggeredFruit((int)suikaTypeObject, contactPoint);
-            Debug.Log("Type Number : " + (int)suikaTypeObject);
+            //Debug.Log("Type Number : " + (int)suikaTypeObject);
             collision.transform.SetParent(suikaManager.poolerManager.objectPool[(int)suikaTypeObject - 1].transform);
             collision.gameObject.GetComponent<PooledObject>().pool.ReturnObject(collision.gameObject);
 
@@ -56,6 +56,8 @@ public class SuikaObject : MonoBehaviour
 
             // Setelah merger, aktifkan collider kembali
             Invoke("EnableCollider", 0.1f);
+
+            suikaManager.audioManager.PlaySFXOneShot(suikaManager.bottleCollide);
         }
     }
 

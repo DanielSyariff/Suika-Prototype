@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     public GameObject settingPanel;
     public Transform settingPopUp;
 
+    public GameObject creditPanel;
+    public Transform creditPopUp;
+
     [Header("Game Over Menu")]
     public GameObject animatedGameOver;
     public TextMeshProUGUI animatedGameOverText;
@@ -55,12 +58,12 @@ public class UIManager : MonoBehaviour
     public void RedLineTriggered()
     {
         redLine.gameObject.SetActive(true);
-        Debug.Log("Activating Alert");
+        //Debug.Log("Activating Alert");
     }
     public void RedLineUntriggered()
     {
         redLine.gameObject.SetActive(false);
-        Debug.Log("Deactivating Alert");
+        //Debug.Log("Deactivating Alert");
     }
     #endregion
 
@@ -97,12 +100,32 @@ public class UIManager : MonoBehaviour
     {
         settingPanel.SetActive(true);
         settingPopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+
+        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedPositif);
     }
 
     public void CloseSetting()
     {
         settingPanel.SetActive(false);
         settingPopUp.DOScale(Vector3.zero, 0.5f);
+
+        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedNegatif);
+    }
+
+    public void OpenCredit()
+    {   
+        creditPanel.SetActive(true);
+        creditPopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+
+        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedPositif);
+    }
+
+    public void CloseCredit()
+    {
+        creditPanel.SetActive(false);
+        creditPopUp.DOScale(Vector3.zero, 0.5f);
+
+        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedNegatif);
     }
     #endregion
 

@@ -33,6 +33,7 @@ public class SuikaManager : MonoBehaviour
     public Transform bucket;
 
     [Header("Scoring and Data")]
+    public bool gameOver;
     public int score;
 
     int triggerCount;
@@ -42,6 +43,11 @@ public class SuikaManager : MonoBehaviour
     public float timeToGameOver;
     float timer;
 
+    [Header("Audio")]
+    public AudioManager audioManager;
+    public AudioClip buttonClickedPositif;
+    public AudioClip buttonClickedNegatif;
+    public AudioClip bottleCollide;
     private void Awake()
     {
         if (instance == null)
@@ -52,7 +58,8 @@ public class SuikaManager : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating("CheckRedLine", 1f, 2f);
+        gameOver = false;
+        audioManager = FindObjectOfType<AudioManager>();
     }
     public void LoadScene(string sceneName)
     {
@@ -131,6 +138,8 @@ public class SuikaManager : MonoBehaviour
             _Alert = alert;
             timer = timeToGameOver;
 
+            gameOver = false;
+
             uiManager.RedLineUntriggered();
             ChangeExpressionNormal();
         }
@@ -144,7 +153,12 @@ public class SuikaManager : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                Debug.Log("GAME OVER, BREWING ALL POTION");
+                if (!gameOver)
+                {
+                    Debug.Log("GAME OVER, BREWING ALL POTION");
+                    uiManager.StartGameOverAnimation();
+                    gameOver = true;
+                }
             }
         }
     }
