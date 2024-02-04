@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
         settingPanel.SetActive(true);
         settingPopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
 
-        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedPositif);
+        suikaManager.audioManager.PlaySFXOneShot("BtnClickPositif");
     }
 
     public void CloseSetting()
@@ -109,7 +109,7 @@ public class UIManager : MonoBehaviour
         settingPanel.SetActive(false);
         settingPopUp.DOScale(Vector3.zero, 0.5f);
 
-        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedNegatif);
+        suikaManager.audioManager.PlaySFXOneShot("BtnClickNegatif");
     }
 
     public void OpenCredit()
@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
         creditPanel.SetActive(true);
         creditPopUp.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
 
-        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedPositif);
+        suikaManager.audioManager.PlaySFXOneShot("BtnClickPositif");
     }
 
     public void CloseCredit()
@@ -125,7 +125,7 @@ public class UIManager : MonoBehaviour
         creditPanel.SetActive(false);
         creditPopUp.DOScale(Vector3.zero, 0.5f);
 
-        suikaManager.audioManager.PlaySFXOneShot(suikaManager.buttonClickedNegatif);
+        suikaManager.audioManager.PlaySFXOneShot("BtnClickNegatif");
     }
     #endregion
 

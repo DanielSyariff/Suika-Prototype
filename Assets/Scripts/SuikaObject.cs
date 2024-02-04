@@ -57,7 +57,7 @@ public class SuikaObject : MonoBehaviour
             // Setelah merger, aktifkan collider kembali
             Invoke("EnableCollider", 0.1f);
 
-            suikaManager.audioManager.PlaySFXOneShot(suikaManager.bottleCollide);
+            suikaManager.audioManager.PlaySFXOneShot("BottleCollide");
         }
     }
 

@@ -1,58 +1,75 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+
+[Serializable]
+public class AudioBank
+{
+    public string audioName;
+    public AudioClip clip;
+}
 
 public class AudioManager : MonoBehaviour
 {
     public AudioSource BGM;
     public AudioSource SFX;
 
-    public GameObject xBGM;
-    public GameObject xSFX;
+    public List<AudioBank> sfxBank;
 
-    public AudioClip buttonClickedPositif;
-    public AudioClip buttonClickedNegatif;
-
+    // Variable untuk menyimpan instance AudioManager
+    private static AudioManager instance;
     private void Start()
     {
-        //SetSfxVolume();
-        //SetBgmVolume();
+        // Cek apakah instance sudah ada
+        if (instance == null)
+        {
+            // Jika tidak, inisialisasi instance dengan objek saat ini
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            // Jika sudah ada, hancurkan objek saat ini
+            Destroy(this.gameObject);
+        }
     }
 
     // Metode untuk mengatur volume SFX
-    public void SetSfxVolume()
+    public void SetSfxVolume(GameObject indicator)
     {
         if (SFX.mute)
         {
             SFX.mute = false;
-            xSFX.SetActive(false);
+            indicator.SetActive(false);
 
-            PlaySFXOneShot(buttonClickedPositif);
+            PlaySFXOneShot("BtnClickPositif");
         }
         else
         {
             SFX.mute = true;
-            xSFX.SetActive(true);
+            indicator.SetActive(true);
 
-            PlaySFXOneShot(buttonClickedNegatif);
+            PlaySFXOneShot("BtnClickNegatif");
         }
     }
 
     // Metode untuk mengatur volume BGM
-    public void SetBgmVolume()
+    public void SetBgmVolume(GameObject indicator)
     {
         if (BGM.mute)
         {
             BGM.mute = false;
-            xBGM.SetActive(false);
+            indicator.SetActive(false);
 
-            PlaySFXOneShot(buttonClickedPositif);
+            PlaySFXOneShot("BtnClickPositif");
         }
         else
         {
             BGM.mute = true;
-            xBGM.SetActive(true);
+            indicator.SetActive(true);
 
-            PlaySFXOneShot(buttonClickedNegatif);
+            PlaySFXOneShot("BtnClickNegatif");
         }
     }
 
@@ -61,8 +78,9 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void PlaySFXOneShot(AudioClip clip)
+    public void PlaySFXOneShot(string clipname)
     {
-        SFX.PlayOneShot(clip);
+        AudioBank foundAudio = sfxBank.Find(audio => audio.audioName == clipname);
+        SFX.PlayOneShot(foundAudio.clip);
     }
 }

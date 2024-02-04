@@ -45,9 +45,8 @@ public class SuikaManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioManager audioManager;
-    public AudioClip buttonClickedPositif;
-    public AudioClip buttonClickedNegatif;
-    public AudioClip bottleCollide;
+    public GameObject xBGM;
+    public GameObject xSFX;
     private void Awake()
     {
         if (instance == null)
@@ -56,10 +55,43 @@ public class SuikaManager : MonoBehaviour
         }
     }
 
+    #region
+    public void ReplayCheckerAudioIndicator()
+    {
+        if (audioManager.BGM.mute)
+        {
+            xBGM.SetActive(true);
+        }
+        else
+        {
+            xBGM.SetActive(false);
+        }
+
+        if (audioManager.SFX.mute)
+        {
+            xSFX.SetActive(true);
+        }
+        else
+        {
+            xSFX.SetActive(false);
+        }
+    }
+    public void AudioBGMControl()
+    {
+        audioManager.SetBgmVolume(xBGM);
+    }
+
+    public void AudioSFXControl()
+    {
+        audioManager.SetSfxVolume(xSFX);
+    }
+    #endregion
+
     private void Start()
     {
         gameOver = false;
         audioManager = FindObjectOfType<AudioManager>();
+        ReplayCheckerAudioIndicator();
     }
     public void LoadScene(string sceneName)
     {
@@ -135,13 +167,19 @@ public class SuikaManager : MonoBehaviour
         }
         else
         {
+            if (_Alert)
+            {
+                ChangeExpressionNormal();
+            }
+
             _Alert = alert;
             timer = timeToGameOver;
+
+
 
             gameOver = false;
 
             uiManager.RedLineUntriggered();
-            ChangeExpressionNormal();
         }
 
         

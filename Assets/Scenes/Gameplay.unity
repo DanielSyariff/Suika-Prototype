@@ -571,7 +571,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1364,7 +1364,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2036,9 +2036,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 447754188}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: SetSfxVolume
+      - m_Target: {fileID: 1358236244}
+        m_TargetAssemblyTypeName: SuikaManager, Assembly-CSharp
+        m_MethodName: AudioSFXControl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2158,7 +2158,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2658,8 +2658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2055595315}
-  - {fileID: 1128866055}
+  - {fileID: 1967858425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &447754188
@@ -2676,10 +2675,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGM: {fileID: 2055595316}
   SFX: {fileID: 1128866056}
-  xBGM: {fileID: 1413076804}
-  xSFX: {fileID: 1582425950}
-  buttonClickedPositif: {fileID: 8300000, guid: d9d1a73dd1381df45a75d991476e887d, type: 3}
-  buttonClickedNegatif: {fileID: 8300000, guid: 808cc857c9d62854299159df8f11dc8c, type: 3}
+  sfxBank:
+  - audioName: BtnClickPositif
+    clip: {fileID: 8300000, guid: d9d1a73dd1381df45a75d991476e887d, type: 3}
+  - audioName: BtnClickNegatif
+    clip: {fileID: 8300000, guid: 808cc857c9d62854299159df8f11dc8c, type: 3}
+  - audioName: BottleCollide
+    clip: {fileID: 8300000, guid: 6082fcc075bf49d49b528c12ae451369, type: 3}
 --- !u!1 &449418645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3739,7 +3741,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3989,7 +3991,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5367,7 +5369,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5604,9 +5606,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 447754188}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: SetBgmVolume
+      - m_Target: {fileID: 1358236244}
+        m_TargetAssemblyTypeName: SuikaManager, Assembly-CSharp
+        m_MethodName: AudioBGMControl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5885,7 +5887,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5922,12 +5924,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128866054}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 447754187}
+  m_Father: {fileID: 1967858425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1128866056
 AudioSource:
@@ -6362,7 +6364,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6707,7 +6709,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6790,9 +6792,8 @@ MonoBehaviour:
   _Alert: 0
   timeToGameOver: 3
   audioManager: {fileID: 447754188}
-  buttonClickedPositif: {fileID: 8300000, guid: d9d1a73dd1381df45a75d991476e887d, type: 3}
-  buttonClickedNegatif: {fileID: 8300000, guid: 808cc857c9d62854299159df8f11dc8c, type: 3}
-  bottleCollide: {fileID: 8300000, guid: 6082fcc075bf49d49b528c12ae451369, type: 3}
+  xBGM: {fileID: 1413076804}
+  xSFX: {fileID: 1582425950}
 --- !u!114 &1358236245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6833,7 +6834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suikaManager: {fileID: 1358236244}
   cauldron: {fileID: 1179277250}
-  cauldronHeightTrigger: 0.05
+  cauldronHeightTrigger: 2.5
 --- !u!1 &1359805763
 GameObject:
   m_ObjectHideFlags: 0
@@ -8533,7 +8534,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9223,7 +9224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6b5abf06ecb29e04a8f14539cb97cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9664,6 +9665,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952666070}
   m_CullTransparentMesh: 1
+--- !u!1 &1967858424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967858425}
+  m_Layer: 0
+  m_Name: Don't Destroy Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1967858425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967858424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2055595315}
+  - {fileID: 1128866055}
+  m_Father: {fileID: 447754187}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967895371
 GameObject:
   m_ObjectHideFlags: 0
@@ -10175,12 +10209,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055595314}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 447754187}
+  m_Father: {fileID: 1967858425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2055595316
 AudioSource:
