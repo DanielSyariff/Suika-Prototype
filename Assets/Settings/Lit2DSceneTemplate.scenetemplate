@@ -22,7 +22,8 @@ Texture2D:
   m_MipCount: 1
   m_IsReadable: 1
   m_IsPreProcessed: 0
-  m_IgnoreMasterTextureLimit: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
@@ -97,8 +98,6 @@ MonoBehaviour:
     instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
     instantiationMode: 0
-  - dependency: {fileID: 2800000, guid: 6b629d7261aeeec429a75c1c2250a7db, type: 3}
-    instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 7681655cfa9746e4a9977f59a07e00ab, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 0766852943b390f49900a365c9c2365d, type: 3}
@@ -121,8 +120,6 @@ MonoBehaviour:
     instantiationMode: 0
   - dependency: {fileID: 11400000, guid: 26039e02d87c7124fac1eda0098131c4, type: 2}
     instantiationMode: 1
-  - dependency: {fileID: 4705603812523787473, guid: 7a43d565dfd7c954791fd35ef977c9f9, type: 3}
-    instantiationMode: 0
   - dependency: {fileID: 2800000, guid: dcd4135ba3d890b488703d8dc01c3301, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 8300000, guid: 808cc857c9d62854299159df8f11dc8c, type: 3}
@@ -220,6 +217,8 @@ MonoBehaviour:
   - dependency: {fileID: 8300000, guid: d9d1a73dd1381df45a75d991476e887d, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: aa530910b7b8101488beb68401498aaa, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 2d7bfb5459384b848b17cdb0cd445c1c, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 017a2f20fcbd97d4398379092db57afc, type: 3}
     instantiationMode: 0

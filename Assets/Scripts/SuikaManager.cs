@@ -106,6 +106,7 @@ public class SuikaManager : MonoBehaviour
 
     public void SpawnTriggeredFruit(int nextFruit, Vector2 pos) 
     {
+        Debug.Log("Next Fruit : " + nextFruit);
         triggerCount++;
         if (triggerCount == 2)
         {
@@ -113,11 +114,15 @@ public class SuikaManager : MonoBehaviour
             score += fruitData[nextFruit - 1].incrementScore;
             //GameObject tmpObject = Instantiate(fruitData[nextFruit].fruitObject, pos, Quaternion.identity);
 
-            GameObject tmpObject = GetObjectPool(fruitData[nextFruit].suikaType);
-            tmpObject.transform.localPosition = pos;
-            tmpObject.transform.rotation = Quaternion.identity;
+            //Jika bukan Potion terakhir maka lanjutkan Potion selanjutnya
+            if (nextFruit != 11)
+            {
+                GameObject tmpObject = GetObjectPool(fruitData[nextFruit].suikaType);
+                tmpObject.transform.localPosition = pos;
+                tmpObject.transform.rotation = Quaternion.identity;
 
-            tmpObject.transform.SetParent(bucket);
+                tmpObject.transform.SetParent(bucket);
+            }
 
             uiManager.UpdateUIScore();
 

@@ -72,7 +72,9 @@ public class SuikaController : MonoBehaviour
         fruitObject = getFruit;
 
         startingPosition = initialPosition;
-        targetPosition = initialPosition;
+
+        //Reset Character to Initial Position
+        //targetPosition = initialPosition;
 
         rb = fruitObject.GetComponent<Rigidbody2D>();
         circleCollider2D = fruitObject.GetComponent<CircleCollider2D>();

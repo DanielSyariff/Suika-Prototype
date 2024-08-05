@@ -43,11 +43,11 @@ public class SuikaObject : MonoBehaviour
             // Dapatkan titik sentuhan
             Vector2 contactPoint = collision.GetContact(0).point;
 
-            // Buat objek baru (Strawberry) di tempat bersentuhannya
+            // Buat objek baru (Potion) di tempat bersentuhannya
             suikaManager.SpawnTriggeredFruit((int)suikaTypeObject, contactPoint);
-            //Debug.Log("Type Number : " + (int)suikaTypeObject);
             collision.transform.SetParent(suikaManager.poolerManager.objectPool[(int)suikaTypeObject - 1].transform);
             collision.gameObject.GetComponent<PooledObject>().pool.ReturnObject(collision.gameObject);
+            //Debug.Log("Type Number : " + (int)suikaTypeObject);
 
             // Hancurkan objek lama, Jika pakai Instantiate
             //Destroy(collision.gameObject);
@@ -55,7 +55,8 @@ public class SuikaObject : MonoBehaviour
             canMerge = false;
 
             // Setelah merger, aktifkan collider kembali
-            Invoke("EnableCollider", 0.1f);
+            //Invoke("EnableCollider", 0.1f);
+            EnableCollider();
 
             suikaManager.audioManager.PlaySFXOneShot("BottleCollide");
         }
